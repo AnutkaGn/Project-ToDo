@@ -3,6 +3,7 @@ import AddTaskForm from "./components/AddTaskForm";
 import TaskList from "./components/TaskList/TaskList";
 import { fromStorage } from "./store/todoSlice";
 import { useEffect } from "react";
+import './style.css';
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
   }
 
   useEffect(() => {
-    localStorage.setItem('todo', JSON.stringify({todoList: []}))
+    if (!localStorage.getItem('todo')) localStorage.setItem('todo', JSON.stringify({todoList: []}))
     addFromStorage()
   }) //On load add to store from storage
 

@@ -6,7 +6,7 @@ const TaskList = () => {
     const tasks = useSelector(state => state.todo.todoList)
 
     return (
-        <div>
+        <div style={{marginTop:"11px"}}>
             {tasks.map(({ name, description, status }) => <Task name={name} description={description} status={status} />)}
         </div>
     );

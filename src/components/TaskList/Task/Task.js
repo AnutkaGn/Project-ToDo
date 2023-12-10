@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { removeFromList } from '../../../store/todoSlice';
+import binBtn from '../../../assets/binBtn.png';
+import './task.css';
 
 const Task = ({ name, description, status }) => {
     const dispatch = useDispatch();
@@ -10,11 +12,11 @@ const Task = ({ name, description, status }) => {
     }
 
     return (
-        <div style={{display: "flex", flexDirection: "row", justifyContent: "space-around", width: "300px"}}>
-            <div><input type="checkbox"/></div>
-            <div>{name}</div>
-            <div>{description}</div>
-            <button onClick={deleteTask}>Delete</button>
+        <div className='task'>
+            <label className="checkbox"><input type="checkbox"/><span className="checkmark"></span></label>
+            <div className="text name">{name}</div>
+            <div className="text desc">{description}</div>
+            <button className='deleteBtn' onClick={deleteTask}><img src={binBtn} alt="" /></button>
         </div>
     );
 }
