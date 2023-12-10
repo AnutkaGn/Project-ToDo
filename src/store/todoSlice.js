@@ -18,10 +18,6 @@ export const todoSlice = createSlice({
             state.todoList = state.todoList.filter(task => JSON.stringify(task) !== JSON.stringify(action.payload));
             toStorage(state);
         },
-        removeChecked: (state) => {
-            state.todoList = state.todoList.filter(task => task.status !== true);
-            toStorage(state);
-        },
         toStorage: toStorage,
         fromStorage: (state, action) => {
             state.todoList = action.payload;
@@ -29,5 +25,5 @@ export const todoSlice = createSlice({
     }
 })
 
-export const { addToList, removeFromList, removeChecked, fromStorage } = todoSlice.actions;
+export const { addToList, removeFromList, fromStorage } = todoSlice.actions;
 export default todoSlice.reducer;
