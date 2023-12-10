@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addToList } from '../store/todoSlice';
 import './addTaskForm.css';
 import addBtn from '../assets/add.png';
+import uuid from 'react-uuid';
 
 const AddTaskForm = () => {
     const [name, setName] = useState("");
@@ -10,7 +11,7 @@ const AddTaskForm = () => {
     const dispatch = useDispatch();
 
     const addTask = () => {
-        dispatch(addToList({ name, description, status: false }));
+        dispatch(addToList({ id: uuid(), name, description, status: false }));
         setName(prev => prev = "");
         setDescrition(prev => prev = "");
     }

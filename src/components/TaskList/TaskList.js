@@ -7,7 +7,7 @@ const TaskList = () => {
 
     return (
         <div style={{marginTop:"11px"}}>
-            {tasks.map(({ name, description, status }) => <Task name={name} description={description} status={status} />)}
+            {tasks.map(({ id, name, description, status }) => <Task id={id} name={name} description={description} status={status} key={id} />)}
         </div>
     );
 }
