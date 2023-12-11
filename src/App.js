@@ -20,7 +20,7 @@ function App() {
   }) //On load add to store from storage
 
   return (
-    <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+    <div className="wrapper" >
       <AddTaskForm />
       <TaskList />
     </div>

@@ -81,3 +81,16 @@
     display: none;
     content: url("../../../assets/tick.svg");
 }
+
+
+@media screen and (max-width: 768px) {
+    .task{
+        width: 100%;
+    }
+    .text{
+        font-size: 17px;
+    }
+    .name{
+        margin-left: 40px;
+    }
+}
