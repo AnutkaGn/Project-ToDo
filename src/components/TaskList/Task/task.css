@@ -3,7 +3,8 @@
     border-radius: 5px;
     background: #393939;
     width: 1190px;
-    height: 50px;
+    min-height: 50px;
+    height: auto;
     display: flex; 
     flex-direction: row;
     align-items: center;
@@ -83,7 +84,7 @@
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
     .task{
         width: 100%;
     }

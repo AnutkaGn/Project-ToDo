@@ -57,20 +57,35 @@
     margin-bottom: 10px;
 }
 
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 700px) {
     .wrapperAdd{
         width: 100%;
-        margin-left: -20px;
     }
     .nameTask{
-        width: 90%;
+        width: 130px;
     }
     .descriptionTask{
-        width: 90%;
+        width: 280px;
     }
     .addButton{
-        margin-right: -10px;
+        margin-right: 5px;
         margin-top: 35px;
-        width: 10%;
     }
 }
+
+@media screen and (max-width: 1200px) and (min-width: 700px) {
+    .wrapperAdd{
+        width: 100%;
+    }
+    .nameTask{
+        width: 210px;
+    }
+    .descriptionTask{
+        width: 415px;
+    }
+    .addButton{
+        margin-top: 35px;
+    }
+}
+
