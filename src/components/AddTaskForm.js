@@ -30,13 +30,8 @@ const AddTaskForm = ({addToList}) => {
     );
 }
 
-const mapStateToProps = (state) => {
-    return{
-        tasks: state.todo.todoList
-    }
-}
 const mapDispatchToProps = {
     addToList,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddTaskForm);
+export default connect(null, mapDispatchToProps)(AddTaskForm);

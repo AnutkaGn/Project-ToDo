@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import binBtn from '../../../assets/binBtn.png';
 import './task.css';
 
-const Task = ({ id, name, description, status, removeFromList, updateStatus}) => {
+const Task = ({ id, name, description, status, removeFromList }) => {
     const deleteTask = () => {
         removeFromList({ id, name, description, status });
     }
@@ -15,21 +15,17 @@ const Task = ({ id, name, description, status, removeFromList, updateStatus}) =>
 
     return (
         <div className='task'>
-            <label className="checkbox"><input type="checkbox" onChange={handleCheckbox} value={status}/><span className="checkmark"></span></label>
+            <label className="checkbox"><input type="checkbox" onChange={handleCheckbox} checked={status}/><span className="checkmark"></span></label>
             <div className="text name">{name}</div>
             <div className="text desc">{description}</div>
             <button className='deleteBtn' onClick={deleteTask}><img src={binBtn} alt="" /></button>
         </div>
     );
 }
-const mapStateToProps = (state) => {
-    return{
-        tasks: state.todo.todoList
-    }
-}
+
 const mapDispatchToProps = {
     removeFromList, updateStatus
     
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Task);
+export default connect(null, mapDispatchToProps)(Task);
