@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { addToList } from '../store/todoSlice';
+import { connect } from 'react-redux';
 import './addTaskForm.css';
 import addBtn from '../assets/add.png';
 import uuid from 'react-uuid';
 
-const AddTaskForm = () => {
+const AddTaskForm = ({addToList}) => {
     const [name, setName] = useState("");
     const [description, setDescrition] = useState("");
-    const dispatch = useDispatch();
 
     const addTask = () => {
-        dispatch(addToList({ id: uuid(), name, description, status: false }));
+        addToList({ id: uuid(), name, description, status: false });
         setName(prev => prev = "");
         setDescrition(prev => prev = "");
     }
@@ -31,4 +30,13 @@ const AddTaskForm = () => {
     );
 }
 
-export default AddTaskForm;
+const mapStateToProps = (state) => {
+    return{
+        tasks: state.todo.todoList
+    }
+}
+const mapDispatchToProps = {
+    addToList,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddTaskForm);

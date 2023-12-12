@@ -1,18 +1,16 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { removeFromList, updateStatus } from '../../../store/todoSlice';
+import { connect } from 'react-redux';
 import binBtn from '../../../assets/binBtn.png';
 import './task.css';
 
-const Task = ({ id, name, description, status }) => {
-    const dispatch = useDispatch();
-
+const Task = ({ id, name, description, status, removeFromList, updateStatus}) => {
     const deleteTask = () => {
-        dispatch(removeFromList({ id, name, description, status }));
+        removeFromList({ id, name, description, status });
     }
 
     const handleCheckbox = () => {
-        dispatch(updateStatus({ id, name, description, status: !status }));
+        updateStatus({ id, name, description, status: !status });
     }
 
     return (
@@ -24,5 +22,14 @@ const Task = ({ id, name, description, status }) => {
         </div>
     );
 }
+const mapStateToProps = (state) => {
+    return{
+        tasks: state.todo.todoList
+    }
+}
+const mapDispatchToProps = {
+    removeFromList, updateStatus
+    
+}
 
-export default Task;
+export default connect(mapStateToProps, mapDispatchToProps)(Task);
