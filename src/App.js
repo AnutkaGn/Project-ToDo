@@ -1,23 +1,22 @@
-import { useDispatch } from "react-redux";
 import AddTaskForm from "./components/AddTaskForm";
 import TaskList from "./components/TaskList/TaskList";
 import { fromStorage } from "./store/todoSlice";
 import { useEffect } from "react";
+import { connect } from "react-redux";
 import './style.css';
 
 
-function App() {
-  const dispatch = useDispatch();
+function App({ fromStorage }) {
 
   const addFromStorage = () => {
     const storedTodos = JSON.parse(localStorage.getItem('todo'));
-    if(storedTodos) dispatch(fromStorage(storedTodos.todoList));
+    if(storedTodos) fromStorage(storedTodos.todoList);
   }
 
   useEffect(() => {
     if (!localStorage.getItem('todo')) localStorage.setItem('todo', JSON.stringify({todoList: []}))
     addFromStorage()
-  }) //On load add to store from storage
+  })
 
   return (
     <div className="wrapper" >
@@ -27,4 +26,8 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps = {
+  fromStorage,
+  
+}
+export default connect(null, mapDispatchToProps)(App);
