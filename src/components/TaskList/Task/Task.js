@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { removeFromList, updateStatus } from '../../../store/todoSlice';
 import { connect } from 'react-redux';
 import bin from '../../../assets/bin.png';

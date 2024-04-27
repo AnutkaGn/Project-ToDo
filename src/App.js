@@ -27,7 +27,6 @@ function App({ fromStorage }) {
 }
 
 const mapDispatchToProps = {
-  fromStorage,
-  
+  fromStorage
 }
 export default connect(null, mapDispatchToProps)(App);
