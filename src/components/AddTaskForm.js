@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { addToList } from '../store/todoSlice';
 import { connect } from 'react-redux';
 import './addTaskForm.css';
-import addBtn from '../assets/add.png';
 import uuid from 'react-uuid';
 
 const AddTaskForm = ({addToList}) => {
@@ -25,7 +24,7 @@ const AddTaskForm = ({addToList}) => {
                 <label className='descriptionLabelTask' htmlFor="taskDescription">Description</label>
                 <input className='descriptionTask' name='taskDescription' type="text" value={description} onChange={e => setDescrition(e.target.value)}/>
             </div>
-            <button className='addButton' onClick={addTask}><img src={addBtn} alt="add"/></button>
+            <button className='addButton' onClick={addTask}><img src="assets/add.png" alt="add"/></button>
         </div>
     );
 }

@@ -1,7 +1,6 @@
-
+import React from 'react';
 import { removeFromList, updateStatus } from '../../../store/todoSlice';
 import { connect } from 'react-redux';
-import bin from '../../../assets/bin.png';
 import './task.css';
 
 const Task = ({ id, name, description, status, removeFromList, updateStatus }) => {
@@ -18,7 +17,7 @@ const Task = ({ id, name, description, status, removeFromList, updateStatus }) =
             <label className="checkbox"><input type="checkbox" onChange={handleCheckbox} checked={status}/><span className="checkmark"></span></label>
             <div className="text name">{name}</div>
             <div className="text desc">{description}</div>
-            <button className='deleteBtn' onClick={deleteTask}><img src={bin} alt=""/></button>
+            <button className='deleteBtn' onClick={deleteTask}><img src="assets/bin.png" alt=""/></button>
         </div>
     );
 }
