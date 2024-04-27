@@ -1,6 +1,6 @@
 - name: Build docker image
   docker_image:
-    name: react_aws_image
+    name: node_aws_image
     force_source: true
     source: build
     build:
@@ -9,8 +9,8 @@
 
 - name: Run docker container
   docker_container:
-    name: react_aws
-    image: react_aws_image
+    name: node_aws
+    image: node_aws_image
     restart: true
     recreate: true
     ports:
