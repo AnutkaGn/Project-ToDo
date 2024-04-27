@@ -1,0 +1,6 @@
+- name: Build React app
+  hosts: all
+  remote_user: ubuntu
+  roles:
+    - git_pull
+    - docker_restart
