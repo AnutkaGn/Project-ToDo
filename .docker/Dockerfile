@@ -6,7 +6,7 @@ WORKDIR /aws
 COPY package.json /aws
 COPY app /aws/app
 
-RUN npm install --omit=dev
+RUN npm install --omit=dev --force
 
 EXPOSE 3000/tcp
 
