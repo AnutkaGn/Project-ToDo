@@ -1,8 +1,10 @@
 name: Deploy app to AWS EC2 Ubuntu server
 
 on:
-  push:
-    branches: [ main ]
+  workflow_run:
+    workflows: ["Run Linting and Tests"]
+    types:
+      - completed
 
 jobs:
   build:
