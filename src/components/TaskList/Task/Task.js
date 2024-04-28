@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import './task.css';
 
 const Task = ({ id, name, description, status, removeFromList, updateStatus }) => {
+    
     const deleteTask = () => {
         removeFromList({ id, name, description, status });
     }
