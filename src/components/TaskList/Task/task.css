@@ -84,7 +84,7 @@
 .checkmark::after{
     position: absolute;
     display: none;
-    content: url("../../../assets/tick.svg");
+    content: url("../../../../public/assets/tick.svg");
 }
 
 @media screen and (max-width: 1200px) {
