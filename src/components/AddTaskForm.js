@@ -5,7 +5,6 @@ import './addTaskForm.css';
 import uuid from 'react-uuid';
 
 const AddTaskForm = ({addToList}) => {
-    
     const [name, setName] = useState("");
     const [description, setDescrition] = useState("");
 
