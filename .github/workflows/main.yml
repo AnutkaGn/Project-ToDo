@@ -1,4 +1,4 @@
-name: Deploy app to AWS EC2 Ubuntu server
+name: CD
 
 on:
   workflow_run:
@@ -7,22 +7,18 @@ on:
       - completed
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        name: Checkout
-      - name: Run playbook
-        uses: dawidd6/action-ansible-playbook@v2
-        with:
-          playbook: .ansible/main.yml
-          key: ${{secrets.SSH_PRIVATE_KEY}}
-          inventory: |
-            [all]
-            ${{secrets.AWS}} address=localhost
-          options: |
-            -e GITHUB_REPO=${{github.repository}}
-            -e NODE_ENV=${{vars.NODE_ENV}}
-            -e APP_PORT=${{vars.APP_PORT}}
-            -e APP_PATH=${{vars.APP_PATH}}
 
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            echo "Hello, world!"
