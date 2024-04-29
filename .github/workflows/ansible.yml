@@ -1,4 +1,4 @@
-name: Deploy app to AWS EC2 Ubuntu server
+name: Ansible
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  ansible:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
