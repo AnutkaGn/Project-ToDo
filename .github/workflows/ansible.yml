@@ -1,17 +1,16 @@
-# name: Deploy app to AWS EC2 Ubuntu server
+name: Deploy app to AWS EC2 Ubuntu server
 
-# on:
-#   workflow_run:
-#     workflows: ["Run Linting and Tests"]
-#     types:
-#       - completed
+on:
+  push:
+    branches:
+      - main
 
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v4
-#         name: Checkout
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout
 #       - name: Run playbook
 #         uses: dawidd6/action-ansible-playbook@v2
 #         with:
